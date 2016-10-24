@@ -1,0 +1,31 @@
+@charset="UTF-8"
+html,body,ul,li,ol,a,input{
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	min-width: 1280px;
+	min-height: 800px;
+	font-size: 12px;
+	line-height: 150%;
+	font-family: Arial, Verdana, 宋体;
+	color: #666;
+	background: #fff;	
+}
+ul,ol{
+	list-style: none;
+}
+li{
+	display: list-item;
+	/*text-align: -webkit-match-parent;*/
+}
+a{
+	color: black;
+}
+img{
+	border: none;
+}
+.style-red{
+	color: #d52b2b;
+}

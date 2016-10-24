@@ -1,0 +1,28 @@
+[
+	{
+		"title": "demo1 javascript",
+		"authors": [
+			"demo1"
+		],
+		"edition": 3,
+		"year": 2016
+	},
+	{
+		"title": "demo2 javascript",
+		"authors": [
+			"demo2"
+		],
+		"edition": 2,
+		"year": 2016
+	},
+	{
+		"title": "demo3 javascript",
+		"authors": {
+			"name": "Nicholas C. Zakas",
+			"age": 20,
+			"sex": "m"
+		},
+		"edition": 1,
+		"year": 2006
+	}
+]
