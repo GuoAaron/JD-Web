@@ -295,7 +295,6 @@ img{
 	height: 60px;
 	padding: 20px 0px;
 	float: left;
-	z-index: 12;
 	border: 1px solid red;
 }
 #logo-jd .logo{
@@ -307,17 +306,8 @@ img{
 #search{
 	float: left;
 	width: 540px;
-	z-index: 12;
 	margin-top: 20px;
 	position: relative;
-}
-#search #sheple{
-	display: none;
-	width: 400px;
-	height: 20px;
-	position: absolute;
-	border: 1px solid red;
-	top: 36px; 
 }
 #search .search-input{
 	width: 400px;
@@ -349,6 +339,34 @@ img{
 	font-size: 16px;
 	cursor: pointer;
 }
+#search #sheple{
+	display: none;
+	width: 400px;
+	position: fixed;
+	border: 1px solid #ddd;
+	top: 166px;
+	overflow: hidden;
+}
+#sheple li{
+	width: inherit;
+	height: 20px;
+	background: #fff;
+	font-size: 14px;
+	/*font-weight: bold;*/
+}
+ #sheple li:hover{
+ 	background: rgb(255,223,198);
+ 	cursor: pointer;
+ }
+ #sheple hr{
+ 	background: #ddd;
+ }
+ #sheple li #close{
+ 	width: inherit;
+ 	height: inherit;
+ 	font-size: 14px;
+ 	float: right;
+ }
 .sele-w .shop-cart{
 	margin-right: 45px;
 }

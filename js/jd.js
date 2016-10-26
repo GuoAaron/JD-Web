@@ -44,10 +44,45 @@ $(function(){
 			}
 		});*/
 		obj.nav.clickShutDwon("#shutdown","#top-banner");
-		obj.search.focus("#search input[type=text]");		
-	})();
+		//查询系列事件
+		var url = "../data/jdSerachData.json";
+		var a = "#search input[type=text]";
+		var c = "GET";
+		var d = "json";
+		obj.search.focus(a,url,c,d);				
+	})();		
 });
 var obj = {
+	"readJsonFile": function (url,val,c,d,i) {
+		if(val){
+			$.ajax({
+				url: url,
+				type: c,
+				dataType: d,
+				success: function(datas){
+					JSON.stringify();//序列化对象或者数组为json类型数据
+					for(var data in datas){
+						var regexp = new RegExp(datas[data].key);								
+						if(regexp.test(val)){
+							obj.search.xrlist(datas[data].value,datas[data].value.length);
+							$(i).show();
+							break;
+						}
+					}
+				},
+				error: function(){
+					console.log("request failed");
+				}
+			});
+		}
+	},
+	"clickItem": function(a){		
+		console.log(a);
+		if ($("#search input[type=text]").val()) {
+			$("#search input[type=text]").val("");
+		}
+		$("#search input[type=text]").val(a.title);
+	},	
 	"nav": {
 		"preloadImages": function(){
 			$(arguments[0]).attr("src", arguments[1]);		
@@ -99,36 +134,48 @@ var obj = {
 		}
 	},
 	"search": {
+		"xrlist": function(data,datanum){
+			$("#sheple").empty();
+			if(datanum != "undefined" && datanum <= data.length){
+				datanum = datanum;
+			}else{
+				datanum = data.length;
+			}			
+			for (var i = 0; i < datanum; i++) {
+			if(i === datanum-1){
+				$("#sheple").append("<hr/><li title'关闭'><div id='close'>关闭</div></li>");
+				obj.nav.clickShutDwon("#close","#sheple");
+				break;
+			}			
+				$("#sheple").append("<li class='xrshow' title='"+data[i]+"' onclick='obj.clickItem(this)'>"+data[i]+"</li>");
+			}
+		},
 		"focus": function(a,b,c,d){
-			$(a).focus(function(){				
-				this.placeholder = "";
+			$(a).focus(function(){
 				$(this).css("color","rgb(51,51,51)");
+				if (this.value) {
+					obj.readJsonFile(b,this.value,c,d,"#sheple");
+				}else{					
+					this.placeholder = "";
+				}				
 			});
 			$(a).blur(function(){
-				this.placeholder = "口袋投影";
-				$(this).css("color","rgb(135,135,135)");
+				var flag = false;
+				/*$("#sheple").mouseover(function(event){
+					flag = true;
+					console.log("asdfg");
+				});*/
+				/*if (!flag) {
+					$("#sheple").hide();
+					$("#sheple").empty();				
+				}*/
+				if (!this.value) {
+					$(this).css("color","rgb(135,135,135)");
+					this.placeholder = "口袋投影";			
+				}
 			});
 			$(a).bind("input",function(){
-				console.log(this.value);
-				if(this.value){
-					$.ajax({
-						url: "../data/demo.json",
-						type: "GET",
-						data: "",
-						dataType: "json",
-						success: function(datas){
-							debugger;
-							JSON.parse(datas);//解析json数据
-							JSON.stringify();//序列化对象或者数组为json类型数据
-							console.log(datas);
-							var data = eval();
-							console.log(new Date().toJSON());
-						},
-						error: function(){
-							console.log("request failed");
-						}
-					});
-				}
+				obj.readJsonFile(b,this.value,c,d,"#sheple");				
 			});							
 		}
 	}
