@@ -283,11 +283,12 @@ img{
 	overflow: hidden;
 	display: block;
 }
-.sele-w{
+#select{
 	width: 1210px;
+	height: 120px;
 	margin: 0px auto;
-	border: 1px solid orange;
 	overflow: hidden;
+	border: 1px solid black;
 }
 #logo-jd{
 	position: relative;
@@ -295,7 +296,6 @@ img{
 	height: 60px;
 	padding: 20px 0px;
 	float: left;
-	border: 1px solid red;
 }
 #logo-jd .logo{
 	background: url("../images/logo.png") 0px 0px no-repeat;
@@ -367,18 +367,79 @@ img{
  	font-size: 14px;
  	float: right;
  }
-.sele-w .shop-cart{
-	margin-right: 45px;
+#cart{
+	width: 142px;
+	float: right;
+	margin-top: 20px;
+	position: relative;
+	margin-right: 100px;
 }
 .shop-cart{
-	float: right;
 	width: 140px;
+	height: 34px;
+	border: 1px solid #dfdfdf;
+	background: #f9f9f9;
+	position: relative;
+}
+#cart .shop-cart i{
+	position: absolute;
+	display: block;
+	overflow: hidden;	
+}
+#cart .cart-logo{
+	background: url("../images/jd2015img.png") 0px -58px no-repeat;
+	top: 8px;
+	left: 6px;
+	width: 18px;
+	height: 16px;
+}
+#cart .cart-right{
+	top: 8px;
+	right: 20px;
+	width: 10px;
+	height: 15px;
+	font-weight: bolder;
+}
+#cart .shop-num{
+	left: 88px;
+	color: #fff;
+	background: #b61d1d;
+	display: inline-block;
+	min-width: 12px;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 1px 2px;
+	border-radius: 7px 7px 7px 0px;
+	text-align: center;
+}
+#cart .cart-link{
+	top: 8px;
+	left: 30px;
+}
+#cart .cart-spacer{
+	position: absolute;
+	top: 30px;
+	left: 1px;
+	width: 140px;
+	height: 10px;
+	background-color: #f9f9f9;
+	display: none;
+}
+#cart .cart-content{
+	width: 330px;
 	height: 60px;
-	border: 1px solid black;
+	border: 1px solid #dfdfdf;
+	background: #f9f9f9;
+	z-index: 10;
+	float: right;
+	display: none;
+}
+#cart a:hover{
+	color: #e60012;
 }
 .hotwords{
 	float: left;
-	width: 540px;
+	width: 420px;
 	height: 20px;
 	border: 1px solid purple;
 	margin-top: 10px;
