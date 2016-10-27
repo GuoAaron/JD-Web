@@ -49,7 +49,9 @@ $(function(){
 		var a = "#search input[type=text]";
 		var c = "GET";
 		var d = "json";
-		obj.search.focus(a,url,c,d);				
+		obj.search.focus(a,url,c,d);
+		//shopping cart event
+		obj.search.mouseEvent("#cart",".cart-spacer",".cart-content");				
 	})();		
 });
 var obj = {
@@ -153,6 +155,7 @@ var obj = {
 		"focus": function(a,b,c,d){
 			$(a).focus(function(){
 				$(this).css("color","rgb(51,51,51)");
+				debugger;
 				if (this.value) {
 					obj.readJsonFile(b,this.value,c,d,"#sheple");
 				}else{					
@@ -177,6 +180,30 @@ var obj = {
 			$(a).bind("input",function(){
 				obj.readJsonFile(b,this.value,c,d,"#sheple");				
 			});							
+		},
+		"show": function(){
+			for (var i = 0; i < arguments.length; i++) {
+				if (arguments[i]) {
+					$(arguments[i]).show();
+				}
+			}			
+		},
+		"hide": function(){
+			for (var i = 0; i < arguments.length; i++) {
+				if (arguments[i]) {
+					$(arguments[i]).hide();
+				}
+			}			
+		},
+		"mouseEvent": function(e,f,g){
+			if (e) {
+				$(e).on("mouseenter",function(){
+					obj.search.show(f,g);
+				});
+				$(e).on("mouseleave",function() {
+					obj.search.hide(f,g);
+				});
+			}
 		}
 	}
 }
