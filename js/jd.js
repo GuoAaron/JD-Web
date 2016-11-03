@@ -32,17 +32,7 @@ $(function(){
 			}			
 			},function(){
 				$(this).removeClass("hover");
-		});
-		//事件代理
-		/*$(".dropdown-layer").click(function(event){			
-			$(this).find('a').removeClass('selected');
-			$(event.target).not('div').addClass('selected');
-			if($('.selected')){
-				$('#area').html($('.selected').html()());
-			}else{
-				return;
-			}
-		});*/
+		});		
 		obj.nav.clickShutDwon("#shutdown","#top-banner");
 		//查询系列事件
 		var url = "../data/jdSerachData.json";
@@ -51,9 +41,37 @@ $(function(){
 		var d = "json";
 		obj.search.focus(a,url,c,d);
 		//shopping cart event
-		obj.search.mouseEvent("#cart",".cart-spacer",".cart-content");				
-	})();		
+		obj.search.showOrhide("#cart",".cart-spacer",".cart-content");
+		//						
+	})();
+	var hover = {
+		trigger: ".basic-shop-item",
+		change: ".shop-show",
+		fontColor: "font-col",
+		bgdColor: "bgd-white",
+		show: "display",
+		hide: "hidden"
+	}
+
+	obj.shopSort.hover(hover);		
 });
+var f = {
+	"isFunction": function(a){
+		return "function" === typeof a;
+	},
+	"isArray": Array.isArray || function(a){
+		return "array" === typeof a;
+	},
+	"isWindow": function(a){
+		return a && "object" == a && "setInterval" in a;
+	},
+	"addClass": function(a){
+
+	},
+	"removeClass": function(a){
+		if (f.isFunction(a)){}
+	}
+}
 var obj = {
 	"readJsonFile": function (url,val,c,d,i) {
 		if(val){
@@ -195,7 +213,7 @@ var obj = {
 				}
 			}			
 		},
-		"mouseEvent": function(e,f,g){
+		"showOrhide": function(e,f,g){
 			if (e) {
 				$(e).on("mouseenter",function(){
 					obj.search.show(f,g);
@@ -207,4 +225,27 @@ var obj = {
 		}
 	}
 }
+obj.shopSort = {
+	"hover": function(o){
+		console.log(o);
+		$(o.trigger).hover(function(){
+			$(this).addClass(o.bgdColor);
+			$(this).children().addClass(o.fontColor);			
+			$(o.change).eq($(this).index()).addClass(o.show).siblings().removeClass(o.show);
+		},function(){
+			$(this).removeClass(o.bgdColor);
+			$(this).children().removeClass(o.fontColor);
+			$(o.change).removeClass(o.show);
+		});
+	}
+}
+
+
+
+
+
 obj.test.log();
+
+function mouseEvent(arr){
+	this.triClass = arr[1];
+}

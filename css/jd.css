@@ -24,6 +24,15 @@ img{
 	border: none;
 	vertical-align: middle;
 }
+.display{
+	display: block !important;
+}
+.hidden{
+	display: none;
+}
+.bgd-white{
+	background: #fff;
+}
 #header{
 	width: 100%;
 	height: 30px;
@@ -286,9 +295,10 @@ img{
 #select{
 	width: 1210px;
 	height: 120px;
-	margin: 0px auto;
 	overflow: hidden;
-	border: 1px solid black;
+}
+.w{
+	margin: 0px auto;
 }
 #logo-jd{
 	position: relative;
@@ -434,13 +444,126 @@ img{
 	float: right;
 	display: none;
 }
-#cart a:hover{
+#select a:hover{
 	color: #e60012;
 }
 .hotwords{
 	float: left;
-	width: 420px;
 	height: 20px;
-	border: 1px solid purple;
 	margin-top: 10px;
+}
+.hotwords .hot-item{
+	float: left;
+	margin-right: 10px;
+}
+#shop-nav{
+	height: inherit;
+	height: 44px;
+	border-bottom: 2px solid #b1191a;
+}
+#main-nav{
+	width: inherit;
+	font-family: "microsoft yahei";
+}
+#main-nav .w{
+	width: 1210px;
+}
+.shop-sort{
+	width: 210px;
+	height: 44px;	
+	float: left;
+	z-index: 12;
+	position: relative;
+}
+.all-shop-sort{
+	height: 44px;
+	background: #b1191a;
+}
+.all-shop-sort a{
+	color: #fff;
+	font-size: 10px;
+}
+.all-shop-sort .dt a{
+	padding-left: 10px;
+}
+.all-shop-sort .dt{
+	padding-top: 13px;
+	padding-bottom: 11px; 
+}
+.shop-sort .dd{
+	width: 210px;
+	background: #cc0e0e;
+}
+.dd .basic-shop-item{
+	padding: 7px 0px 7px 10px;
+}
+.dd ul{
+	padding: 7px 0px; 
+}
+.basic-shop-item a{
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+.divid-line{
+	color: #fff;
+}
+.nav-ul{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.nav-ul .sort-ul{
+	margin: 5px 0px;
+	float: left;
+}
+.sort-ul .sort-item{
+	float: left;
+	margin: 0px 15px;
+}
+.sort-item,.dt a{
+	font-size: 17px;
+}
+.basic-shop-item a:hover,.sort-item a:hover{
+	color: #e60012 !important;
+}
+.font-col{
+	color: #1a1a1a !important;
+	text-decoration: none;
+}
+.shop-show{
+	position: absolute;
+	width: 930px;
+	height: 490px;
+	top: 46px;
+	left: 210px;
+	display: none;
+}
+.overview{
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.overview .overview-link{
+	margin: 0px 5px;
+	padding: 5px;
+	width: 20px;
+	height: 50px;
+	background: #808080;
+	font-size: 13px;
+	color: #fff;
+}
+.overview a:hover{
+	background: #666666 !important;	
+}
+.shop-dl{
+	margin-left: 20px;
+	margin-top: 10px;	
+}
+.shop-dl dt{
+	float: left;
+}
+.shop-dl a{
+	font-size: 14px;
+	color: black;
+	margin-right: 10px; 
 }
