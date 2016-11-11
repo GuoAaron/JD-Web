@@ -501,10 +501,10 @@ img{
 	background: #cc0e0e;
 }
 .dd .basic-shop-item{
-	padding: 7px 0px 7px 10px;
+	padding: 7px 0px 6px 10px;
 }
 .dd ul{
-	padding: 7px 0px; 
+	padding: 7px 0px 8px 0px; 
 }
 .basic-shop-item a{
 	color: #fff;
@@ -578,17 +578,15 @@ img{
 }
 #mid .bet{
 	width: 1210px;
-	height: 490px;
+	height: 480px;
 	margin: 0px auto;
 	overflow: hidden;
-	border: 1px solid;
 }
 #mid .pic{
 	width: 790px;
-	height: 490px;
+	height: inherit;
 	float: right;
 	margin-left: 10px;
-	background-color: #C4C1B2;
 }
 .pic-slide{
 	width: 790px;
@@ -645,12 +643,17 @@ img{
 }
 .pic-show{
 	width: 790px;
-	height: 140px;
-	background-color: #90A4F7; 
+	height: 140px;	 
+}
+.pic .show-pic{
+	float: left;
+}
+#show2{
+	margin-left: 10px;
 }
 #mid .right-nav{
 	width: 190px;
-	height: 490px;
+	height: inherit;
 	float: right;
 	background-color: #A7F1B6;
 	margin-left: 10px;
