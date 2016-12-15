@@ -29,3 +29,5 @@ h3 { font-size:30px;}
 h4 { font-size:14px;}
 h5 { font-size:12px;}
 h6 { font-size:9px;}
+/*custom element styles*/
+input,select,option,textarea{outline: none;}

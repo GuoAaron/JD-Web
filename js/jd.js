@@ -1,6 +1,4 @@
-/*
-	@description 选择送至的城市
-*/
+/*********************************jd navigation and search***********************************************/
 $(function(){
 	var selectCity = (function(){
 		//li标签
@@ -69,7 +67,12 @@ var f = {
 
 	},
 	"removeClass": function(a){
-		if (f.isFunction(a)){}
+		var c, d, e, g, h, i, j;
+		if (f.isFunction(a)){
+			return this.each(function(b){
+				$(this).removeClass(a.call(this,b,this.className));
+			});
+		}
 	}
 }
 var obj = {
@@ -338,8 +341,101 @@ picSlide = {
 $(function(){
 	picSlide.init();
 });
+/*****************************jd notice and fast in right-nav********************************************/
+function a(){}
+var notice = {
+	"proinfo": {
+		"prom": ".prom-item",
+		"post": ".post-item",
+		"index": ".notice-move-index",
+		"prom_show": ".prom-notice",
+		"post_show": ".post-notice",
+		"service_ico": ".service-head",
+		"service_online": ".service-online",
+		"service_pop": ".service_pop",
+		"service_show": ".service_show",
+		"close": ".service_close",
+		"display": "display",
+		"cursor": "cursor",
+		"cz": {
+			"cz_item": ".cz_item",
+			"intface": ".cz_interface"
+		},
+		"jp": {
+			"jp_item": ".jp_item",
+			"intface": ".jp_interface"
+		},
+		"dy": {
+			"dy_item": ".dy_item",
+			"intface": ".dy_interface"
+		}	
+	},
+	init: function(){
+		var me = this;
+		var news = this.proinfo;
+		var cz = this.proinfo.cz;
+		var jp = this.proinfo.jp;
+		var dy = this.proinfo.dy;
+		console.log(cz);
+		me.hover(news.prom,news.post,news.index,news.prom_show,news.post_show);
+		me.service(news.service_ico,news.service_online,news.service_pop,news.service_show,news.display);
+		me.click(news.close,news.service_pop,news.service_ico);
+		$(".service_close").click(function(e){
+			console.log("this is close");
+			$(".service_pop").css("display","none");
+		});
+		me.mouseEvent(cz.cz_item,news.cursor,cz.intface,news.display);
+		me.mouseEvent(jp.jp_item,news.cursor,jp.intface,news.display);
+		me.mouseEvent(dy.dy_item,news.cursor,dy.intface,news.display);
+	},
+	/*notice mouse event*/
+	hover: function(a,c,d,e,f){
+		$(a).mouseover(function(){
+			$(d).addClass("move-index0").removeClass("move-index");
+			obj.search.show(e);
+			obj.search.hide(f);
+		});
+		$(c).mouseover(function(){
+			$(d).addClass("move-index").removeClass("move-index0");
+			obj.search.show(f);
+			obj.search.hide(e);
+		});
+	},
+	mouseEvent: function(a,c,d,e){
+		var lis = $(a);
+		for (var i = 0; i < lis.length; i++) {
+			lis.eq(i).mouseenter(function(){
+				if (!($(this).hasClass(c))) {
+					$(this).addClass(c).siblings().removeClass(c);
+					$(d).eq($(this).index()).addClass(e).siblings().removeClass(e);
+				}
+			});
+		}
+	},
+	service: function(q,w,e,r,t){
+		var lis = $(q);
+		var len = 47;
+		for (var i = 0; i < lis.length; i++) {
+			lis.eq(i).mouseenter(function(){				
+				obj.search.show(w);
+				$(w).css("transform","translateX("+$(this).index()*len+"px)");
+				obj.search.show(e);
+				$(r).eq($(this).index()).addClass(t).siblings().removeClass(t);
+				/*$(q).slideUp();*/
+				// $(q).animate({height: "30px"});
+				$(".blockTop").animate({top: "-30px"},1000).css("top",-30);
+			});
+		}
+	},
+	click: function(w,e,q){
+		$(w).click(function(){
+			$(e).hide();
+			// $(q).slideDown();			
+			$(".blockTop").animate({top: "0px"},1000);
+		});
+	}	
+};
+$(function(){
+	notice.init();
+});
 obj.test.log();
-
-function mouseEvent(arr){
-	this.triClass = arr[1];
-}
